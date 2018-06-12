@@ -1,7 +1,2 @@
 <resources>
-	<string name="app_name">[AUTO GENERATED FROM NPM]</string>
-	<string name="app_id">[AUTO GENERATED FROM NPM]</string>
-	<string name="contract_id">[AUTO GENERATED FROM NPM]</string>
-	<string name="p12_keystore_filename">[AUTO GENERATED FROM NPM]</string>
-	<string name="p12_keystore_passphrase">[AUTO GENERATED FROM NPM]</string>
 </resources>

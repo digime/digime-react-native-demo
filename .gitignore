@@ -1,7 +1,27 @@
-# OSX
+node_modules
+dist
 .DS_Store
+.idea
+.gradle
+*.iml
+android/build/
+build.properties
+local.properties
+android/app/src/main/res/drawable-*
+android/app/src/main/res/mipmap-*
+android/app/src/main/assets/
 
 # Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## Build generated
+build/
+DerivedData
+*.dSYM
+Credits.plist
+
+## Various settings
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -10,57 +30,26 @@
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata
+xcuserdata/
+
+## Other
 *.xccheckout
 *.moved-aside
-DerivedData
+*.xcuserstate
+*.xcscmblueprint
+*.tar.gz
+*.DS_Store
+
+## Obj-C/Swift specific
 *.hmap
 *.ipa
-*.xcuserstate
-project.xcworkspace
 
-.idea
-.gradle
-local.properties
-*.iml
-
-# node.js
+# Swift Package Manager
 #
-node_modules/
-npm-debug.log
-yarn-error.log
 
-# BUCK
-buck-out/
-\.buckd/
-*.keystore
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
-
-*/fastlane/report.xml
-*/fastlane/Preview.html
-*/fastlane/screenshots
-
-# Android
-/android/app/build/
-/android/build/
-/android/app/src/main/res
-/android/app/src/main/assets
-/android/**/ic_launcher.png
-
-# iOS
-/ios/CAExample/**/*.p12
-/ios/CAExample/**/*.png
-/ios/build
-/ios/**/Contents.json
-
-# ignore compiled javascript
-/src/**/*.js*
-/build/**/*.js*
-index.js*
-
+index.ios.bundle
+index.ios.bundle.meta
+Pods/
+AppIcon.appiconset
+ios/**/*.p12

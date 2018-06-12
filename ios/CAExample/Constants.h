@@ -1,5 +1,9 @@
-#define APPLICATION_NAME @"app_name"
-#define APPLICATION_ID @"app_id"
-#define CONTRACT_ID @"contract_id"
-#define P12_FILENAME @"p12_keystore_filename"
-#define P12_PASSPHRASE @"p12_keystore_passphrase"
+//******************************************************
+// digi.me React Native Demo
+// This file has been generated from javascript source
+//******************************************************
+#define APPLICATION_NAME @"[YOUR APPLICATION_NAME]"
+#define APPLICATION_ID @"[YOUR APPLICATION_ID]"
+#define CONTRACT_ID @"[YOUR CONTRACT_ID]"
+#define P12_FILENAME @"[YOUR P12_FILENAME]"
+#define P12_PASSPHRASE @"[YOUR P12_PASSWORD]"

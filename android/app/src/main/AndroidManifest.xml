@@ -1,41 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.caexample"
-    android:versionCode="1"
-    android:versionName="1.0">
-
+    package="me.digi.androiddemo">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
-    <uses-sdk
-            android:minSdkVersion="21"
-            android:targetSdkVersion="26" />
-
     <application
-            android:name=".MainApplication"
-            android:allowBackup="true"
-            android:label="@string/app_name"
-            android:icon="@mipmap/ic_launcher"
-            android:theme="@style/AppTheme">
-
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="adjustResize">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        
-        <meta-data android:name="me.digi.sdk.Contracts" android:resource="@string/contract_id" />
+        <meta-data android:name="me.digi.sdk.Contracts" android:value="@string/contract_id" />
         <meta-data android:name="me.digi.sdk.AppId" android:value="@string/app_id" />
         <meta-data android:name="me.digi.sdk.AppName" android:value="@string/app_name" />
-        <meta-data android:name="me.digi.sdk.Keys" android:value="@string/p12_keystore_filename" />
-        <meta-data android:name="me.digi.sdk.KeysPassphrase" android:value="@string/p12_keystore_passphrase" />
-
-        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-        <activity android:name=".BridgeActivity" />
-
+        <meta-data android:name="me.digi.sdk.Keys" android:value="@string/p12_filename" />
+        <meta-data android:name="me.digi.sdk.KeysPassphrase" android:value="@string/p12_pass" />
     </application>
 </manifest>

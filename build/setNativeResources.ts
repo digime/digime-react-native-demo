@@ -20,63 +20,40 @@ interface IJSONElement {
     elements: Array<{elements: any[]}>;
 }
 
+const generateHeader = (inLineStyle: boolean = false): string => [
+    "******************************************************",
+    " digi.me React Native Demo",
+    " This file has been generated from javascript source",
+    "******************************************************"
+].map((value: string) => `${inLineStyle ? '#' : '//'}${value}`)
+.reduce((prev: string, current: string) => `${prev}${current}\r\n`, "");
+
 /**
  * Updates the Android project variables to copy the APP and Contract ID constants
- * into the strings.xml resource so that they can be used in the Android Manifest.
- * In order for the SDK to function correctly, the variables must be set and ready
- * before the build is made.
- *
- * Currently the only way to set the CA properties (p12 file) is by updating the
- * Android Manifest xml. Is it, however, possible to set the Contract ID and App ID
- * directly into the SDK using the provided methods.
- *
- * Move to using values set in the build.config instead.
+ * into a build.properties file which is then referenced in the Android (build.gradle)
+ * build script - which in turn sets variables in its strings.xml file
  */
 const setAndroidConfig = (): void => {
     // Retrieve the strings resources Android file
-    const path: string = PATH.resolve("./android/app/src/main/res/values/strings.xml");
+    const path: string = PATH.resolve("./android/app/build.properties");
+    const buildProps: string = [
+        {key: "app_name", value: Vars.Constants.APPLICATION_NAME},
+        {key: "app_id", value: Vars.Constants.APPLICATION_ID},
+        {key: "contract_id", value: Vars.Constants.CONTRACT_ID},
+        {key: "p12_keystore_filename", value: Vars.Constants.P12_FILENAME + Vars.Constants.P12_EXTENSION},
+        {key: "p12_keystore_passphrase", value: Vars.Constants.P12_PASSPHRASE},
+    ].map((value: IKeyValue) => `${value.key}=${value.value}`)
+    .reduce((prev: string, current: string) => `${prev}${current}\r\n`, "")
 
-    if (fs.existsSync(path)) {
-        const getKeyValue = (): IKeyValue[] => {
-          return [
-              {key: "app_name", value: Vars.Constants.APPLICATION_NAME},
-              {key: "app_id", value: Vars.Constants.APPLICATION_ID},
-              {key: "contract_id", value: Vars.Constants.CONTRACT_ID},
-              {key: "p12_keystore_filename", value: Vars.Constants.P12_FILENAME + Vars.Constants.P12_EXTENSION},
-              {key: "p12_keystore_passphrase", value: Vars.Constants.P12_PASSPHRASE},
-          ];
-        };
-
-        const stingsXml: string = fs.readFileSync(path).toString("utf8");
-        const res: any = xml2js(stingsXml, {compact: false});
-        const elements: string[] = get(res, `elements[0].elements`, [])
-            .map((value: IJSONElement) => {
-                getKeyValue().some((keyValue) => {
-                    if (get(value, "attributes.name") === keyValue.key) {
-                        set(value, `elements[0].text`, keyValue.value);
-                        return true;
-                    }
-                    return false;
-                });
-                return value;
-            });
-
-        set(res, `elements[0].elements`, elements);
-
-        console.log(`Setting ${path} to:`);
-        console.log(js2xml(res, {spaces: "\t"}));
-
-        fs.writeFileSync(path, js2xml(res, {spaces: "\t"}));
-    } else {
-        console.error(`Please check the path to stings.xml. Path to android doesn't exist. ${path}`);
-    }
+    console.log(`Setting ${path} to:${buildProps}`);
+    fs.writeFileSync(path, generateHeader(true) + buildProps);
 };
 
 /**
  * Updates the iOS project Constants file to utilise the variables
  * as def'd in the Constants.ts file.
  */
-const setiOSConfig = (): void => {
+ const setiOSConfig = (): void => {
     // Retrieve the iOS Constants file
     // Updates the variables used for contracts id etc
     const path: string = PATH.resolve("./ios/CAExample/Constants.h");
@@ -98,7 +75,7 @@ const setiOSConfig = (): void => {
         console.log(`Setting ${path} to:`);
         console.log(fileString);
 
-        fs.writeFileSync(path, fileString);
+        fs.writeFileSync(path, generateHeader(false) + fileString);
     } else {
         console.error(`Please check the path to Constants.h. Path to ios doesn't exist. ${path}`);
     }

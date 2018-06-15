@@ -1000,7 +1000,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEA7C1DEA2784CCC585E2CA3 /* Pods-CAExample.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				INFOPLIST_FILE = CAExample/Info.plist;
@@ -1020,7 +1019,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD6E08B47C881BFCC422A026 /* Pods-CAExample.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = CAExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

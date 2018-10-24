@@ -1,8 +1,8 @@
 import * as fs from "fs";
 import {get, set} from "lodash";
 import * as PATH from "path";
-import {js2xml, xml2js} from "xml-js";
 import * as Vars from "../src/constants/Constants";
+const {js2xml, xml2js} = require ("xml-js");
 
 /* tslint:disable:no-console */
 

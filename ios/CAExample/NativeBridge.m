@@ -5,19 +5,22 @@
 #import "DMEClient.h"
 #import "Constants.h"
 
+@interface NativeBridge () <DMEClientAuthorizationDelegate, DMEClientDownloadDelegate>
+@end
+
 @implementation NativeBridge
 
 RCT_EXPORT_MODULE(NativeBridge);
 
 RCT_EXPORT_METHOD(initSDK)
 {
-  [DMEClient sharedClient].delegate = self;
-  
   NSLog(@"iOS SDK inited");
   NSLog(@"Using parameters file: %@, password: %@, applicationid: %@, contractid: %@", P12_FILENAME, P12_PASSPHRASE, APPLICATION_ID, CONTRACT_ID);
   
   NSString *privateKeyHex = [DMECryptoUtilities privateKeyHexFromP12File:P12_FILENAME password:P12_PASSPHRASE];
   if (privateKeyHex) {
+    [DMEClient sharedClient].authorizationDelegate = self;
+    [DMEClient sharedClient].downloadDelegate = self;
     [DMEClient sharedClient].appId = APPLICATION_ID;
     [DMEClient sharedClient].contractId = CONTRACT_ID;
     [DMEClient sharedClient].privateKeyHex = privateKeyHex;

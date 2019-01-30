@@ -12,8 +12,8 @@ import com.google.gson.JsonObject;
 import javax.annotation.Nullable;
 
 import me.digi.sdk.core.DigiMeClient;
-import me.digi.sdk.core.DigiMeClientException;
-import me.digi.sdk.core.SDKException;
+import me.digi.sdk.core.errorhandling.DigiMeClientException;
+import me.digi.sdk.core.errorhandling.SDKException;
 import me.digi.sdk.core.SDKListener;
 import me.digi.sdk.core.entities.CAAccounts;
 import me.digi.sdk.core.entities.CAFileResponse;

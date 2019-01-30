@@ -2,7 +2,7 @@
 #import <React/RCTEventEmitter.h>
 #import "DMEClient.h"
 
-@interface NativeBridge : RCTEventEmitter <RCTBridgeModule, DMEClientDelegate>
+@interface NativeBridge : RCTEventEmitter <RCTBridgeModule>
 
 - (void)emitEventWithName:(NSString *)name andPayload:(NSDictionary *) payload;
 - (void)initSDK;

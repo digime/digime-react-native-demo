@@ -1,6 +1,10 @@
 package com.digimedemo;
 
+import android.content.Intent;
+
 import com.facebook.react.ReactActivity;
+
+import me.digi.sdk.interapp.DMEAppCommunicator;
 
 public class MainActivity extends ReactActivity {
 
@@ -11,5 +15,12 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "digimedemo";
+  }
+
+  // add the override for OnActivityResult
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    DMEAppCommunicator.getSharedInstance().onActivityResult(requestCode, resultCode, data);
   }
 }

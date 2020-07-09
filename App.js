@@ -6,8 +6,9 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import {
+  Button,
   SafeAreaView,
   StyleSheet,
   ScrollView,
@@ -16,17 +17,71 @@ import {
   StatusBar,
 } from 'react-native';
 
+import NativeBridge from './src/NativeBridge';
+
 import {
   Header,
-  LearnMoreLinks,
   Colors,
-  DebugInstructions,
-  ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App: () => React$Node = () => {
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'inc': return state + action.value;
+    case 'reset': return 0;
+  }
+}
+
+const statusToString = status => {
+  switch (status) {
+    case 0: return 'ready';
+    case 1: return 'waiting for user';
+    case 2: return 'downloading';
+    case 3: return 'completed/ready';
+    case 4: return 'error/user cancelled';
+  }
+}
+
+const App: () => React$Node = (props) => {
+  let [items, setItems] = useReducer(reducer, 0);
+  let [status, setStatus] = useState(0);
+
+  const onFileData = (data) => {
+    console.log(data);
+    try {
+      const asJson = JSON.parse(data);
+      setItems({type:'inc', value: asJson.length});
+      setStatus(2);
+    }
+    catch (e) {
+      console.log("file parse error");
+    }
+  }
+
+  const onCompleted = () => {
+    console.log("completed");
+    setStatus(3);
+  }
+
+  const onError = () => {
+    console.log("error");
+    setStatus(4);
+  }
+
+  useEffect(()=> {
+    const nativeBridge = NativeBridge.getNativeBridge();
+    nativeBridge.addListener("error", onError);
+    nativeBridge.addListener("fileData", onFileData);
+    nativeBridge.addListener("completed", onCompleted);
+
+    return () => {
+      nativeBridge.removeListener("error", onError);
+      nativeBridge.removeListener("fileData", onFileData);
+      nativeBridge.removeListener("completed", onCompleted);
+    }
+  }, [])
+
   return (
-    <>
+    <View>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
@@ -38,37 +93,33 @@ const App: () => React$Node = () => {
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
+
+
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+            <Button title="Get data" styles={styles.button}
+              disabled={status == 1 || status == 2}
+              onPress={() => {
+                setItems({type:'reset'});
+                setStatus(1);
+
+                const nativeBridge = NativeBridge.getNativeBridge();
+                nativeBridge.initSDK(
+                  "fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF",
+                  "YOUR_APP_ID",
+                  "fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF",
+                  "monkey periscope"
+                );
+              }
+            }/>
+
+          <Text>status: {statusToString(status)}</Text>
+          <Text>downloaded {items} items</Text>
+
           </View>
+
         </ScrollView>
       </SafeAreaView>
-    </>
+    </View>
   );
 };
 
@@ -82,6 +133,9 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: Colors.white,
+  },
+  button: {
+    width: '30px',
   },
   sectionContainer: {
     marginTop: 32,

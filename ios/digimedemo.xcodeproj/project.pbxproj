@@ -18,6 +18,8 @@
 		6249CD82CD25C8CD796D5C54 /* libPods-digimedemo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7316FC35FB63E34B013CD9DA /* libPods-digimedemo-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		92070F9641C1F444589DB6C4 /* libPods-digimedemo-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20D0374FCB7057693B7DD856 /* libPods-digimedemo-tvOSTests.a */; };
+		BE6728D524B75F7A005922DE /* NativeBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = BE6728D324B75F7A005922DE /* NativeBridge.m */; };
+		BE6728D824B761CE005922DE /* fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12 in Resources */ = {isa = PBXBuildFile; fileRef = BE6728D624B761CE005922DE /* fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12 */; };
 		D4FF34F34A0E61EEE3F49460 /* libPods-digimedemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E90081F8F42E9F6563CB8A /* libPods-digimedemo.a */; };
 		F288426A9E873841219F5BFA /* libPods-digimedemo-digimedemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9E81AAC823A7D65CD38C79 /* libPods-digimedemo-digimedemoTests.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +65,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = digimedemo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AC7D923EC3C83D14B1551C4 /* Pods-digimedemo-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digimedemo-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-digimedemo-tvOS/Pods-digimedemo-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		AB9E81AAC823A7D65CD38C79 /* libPods-digimedemo-digimedemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-digimedemo-digimedemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE6728D324B75F7A005922DE /* NativeBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NativeBridge.m; path = digimedemo/NativeBridge.m; sourceTree = "<group>"; };
+		BE6728D624B761CE005922DE /* fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; name = fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12; path = digimedemo/fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12; sourceTree = "<group>"; };
 		CE2F6AB00C25EE7FAB86F8C0 /* Pods-digimedemo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digimedemo-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-digimedemo-tvOSTests/Pods-digimedemo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D84BAE44BB53DAAFD15525FE /* Pods-digimedemo-digimedemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-digimedemo-digimedemoTests.debug.xcconfig"; path = "Target Support Files/Pods-digimedemo-digimedemoTests/Pods-digimedemo-digimedemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +129,8 @@
 		13B07FAE1A68108700A75B9A /* digimedemo */ = {
 			isa = PBXGroup;
 			children = (
+				BE6728D624B761CE005922DE /* fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12 */,
+				BE6728D324B75F7A005922DE /* NativeBridge.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +167,6 @@
 				CE2F6AB00C25EE7FAB86F8C0 /* Pods-digimedemo-tvOSTests.debug.xcconfig */,
 				10B51B00F76874E4BDB417AE /* Pods-digimedemo-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -210,6 +215,7 @@
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
 				5519857C9BDFD8819F26FC5A /* [CP] Copy Pods Resources */,
+				20E0A87FC7D6304558A9D6B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +238,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				E973730F3EFFE0038F98C5B6 /* [CP] Copy Pods Resources */,
+				869659AC568247C4D2A09115 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -340,6 +347,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE6728D824B761CE005922DE /* fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12 in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -376,6 +384,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		20E0A87FC7D6304558A9D6B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-digimedemo-digimedemoTests/Pods-digimedemo-digimedemoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Brotli/Brotli.framework",
+				"${BUILT_PRODUCTS_DIR}/DigiMeSDK/DigiMeSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Brotli.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DigiMeSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-digimedemo-digimedemoTests/Pods-digimedemo-digimedemoTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -451,6 +481,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-digimedemo-digimedemoTests/Pods-digimedemo-digimedemoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		869659AC568247C4D2A09115 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-digimedemo/Pods-digimedemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Brotli/Brotli.framework",
+				"${BUILT_PRODUCTS_DIR}/DigiMeSDK/DigiMeSDK.framework",
+				"${BUILT_PRODUCTS_DIR}/GZIP/GZIP.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Brotli.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DigiMeSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GZIP.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-digimedemo/Pods-digimedemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B47985A2B7B5B9EEDCE74329 /* [CP] Check Pods Manifest.lock */ = {
@@ -569,6 +621,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				BE6728D524B75F7A005922DE /* NativeBridge.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

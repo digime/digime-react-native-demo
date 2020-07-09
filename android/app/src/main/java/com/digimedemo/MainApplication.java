@@ -26,6 +26,11 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+
+          // register the Module so that it's available from JavaScript
+          // https://reactnative.dev/docs/native-modules-android#register-the-module
+          packages.add(new NativeBridgePackage());
+          
           return packages;
         }
 

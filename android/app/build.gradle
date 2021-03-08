@@ -185,8 +185,8 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
-    
-    implementation "me.digi:sdk:2.2.1"
+
+    implementation "me.digi:sdk:2.2.2"
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 

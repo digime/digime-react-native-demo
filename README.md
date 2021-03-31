@@ -3,8 +3,8 @@
     <a href="https://developers.digi.me/slack/join">
         <img src="https://img.shields.io/badge/chat-slack-blueviolet.svg" alt="Developer Chat">
     </a>
-    <a href="../../LICENSE">
-        <img src="https://img.shields.io/badge/license-apache 2.0-blue.svg" alt="Apache 2.0 License">
+    <a href="LICENSE">
+        <img src="https://img.shields.io/github/license/digime/digime-react-native-demo" alt="MIT License">
     </a>
     <a href="https://developers.digi.me">
         <img src="https://img.shields.io/badge/web-digi.me-red.svg" alt="Web">
@@ -115,7 +115,7 @@ for iOS
 npm run ios
 ```
 
-Copyright © 2020 digi.me Ltd. All rights reserved.
+Copyright © 2021 digi.me Ltd. All rights reserved.
 
 [logo]: https://securedownloads.digi.me/partners/digime/SDKReadmeBanner.png
 [developer]: https://developer.digi.me
@@ -125,8 +125,8 @@ Copyright © 2020 digi.me Ltd. All rights reserved.
 [react-native-dev-env]: https://reactnative.dev/docs/environment-setup "Development environment setup"
 [react-native-cli]: https://github.com/react-native-community/cli#creating-a-new-react-native-project "React Native CLI"
 [digime-app]: https://digi.me/get-started/ "Get started with digi.me"
-[sdk-android]: https://github.com/digime/digime-android-sdk/ "digi.me iOS SDK"
-[sdk-ios]: https://github.com/digime/digime-sdk-ios/ "digi.me Android SDK"
+[sdk-android]: https://github.com/digime/digime-sdk-android/ "digi.me Android SDK"
+[sdk-ios]: https://github.com/digime/digime-sdk-ios/ "digi.me iOS SDK"
 [file-p12]: ./ios/digimedemo/fJI8P5Z4cIhP3HawlXVvxWBrbyj5QkTF.p12?raw=true
 [file-info.plist]: ./ios/digimedemo/Info.plist#L30-L33
 [file-app.js]: ./App.js#L106-L110
